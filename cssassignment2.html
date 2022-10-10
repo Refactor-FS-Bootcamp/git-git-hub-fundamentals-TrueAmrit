@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .main {
+            display: flex;
+            margin: 10px;
+            padding: 1%
+        }
+        .main img {
+            border: 5px double rgb(4, 31, 53);
+            border-radius: 10px;
+        }
+
+        .about {
+            background-color: rgb(209, 153, 209);
+            background: linear-gradient(to bottom, rgb(212, 203, 214), rgb(209, 153, 209));
+            margin: 10px;
+            padding: 10px;
+            border: 5px double rgb(4, 31, 53);
+            border-radius: 10px;
+        }
+
+        @media only screen and (min-width:0) and (max-width:1300px) {
+            .main {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <img src="image1.jpg" alt="Cow image">
+        <div class="about">
+            <h1><u>About New zealand Cows</u></h1><br>
+            <p1>A group of New Zealand cows standing in a field, farmfields rolling into the distance behind them.</p1>
+            <p1>New Zealand farms just under 5 million dairy cows in over 11,000 dairy herds. These bring in about $19
+                billion a year to the national economy.</p1>
+            <ul style="list-style-type: circle">
+                <li><b>High fertility:</b></li>
+                <p1>Genetic fertility trends are positive, as are phenotypic trends. In 2019, the NZ national 6 week
+                    in-calf rate reached yet another high point after 4 years of consecutive gains. Final in-calf rate
+                    is also improving despite the average herd’s total mating length being shortened (2019 saw the
+                    shortest recorded to date at just 10.7 weeks). Another interesting trend is the move to better
+                    information gathering. 55% of herds recording on LIC’s MINDA® software now generate detailed
+                    Fertility Focus® reports, compared to just 13% ten years ago.</p1>
+                <li><b>Longevity:</b></li>
+                <p1>Herd life of cows in New Zealand is one of the longest in the world, averaging over 4.5 lactations
+                    per cow and unlike most countries, the phenotypic trend is for increased herd life.</p1>
+                <li><b>Production efficiency:</b></li>
+                <p1>Production per kg/ liveweight continues to climb; modern New Zealand cows produce 50 kg milk solids
+                    more per year than the cows of a decade ago, despite being about the same size. High genetic merit
+                    cows are more profitable for farmers.</p1>
+                <li><b>Environment and welfare:</b></li>
+                <p1>High genetic merit animals partition more of the feed eaten into milk solids, and less into waste.
+                    This means more nitrogen is being converted into protein in cow’s milk rather than being excreted as
+                    urine or faeces. LIC has launched a HoofprintTM Index helping farmers to identify the most
+                    environmentally efficient cows. LIC International has taken the HoofprintTM Index to its overseas
+                    farmers also.</p1>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
