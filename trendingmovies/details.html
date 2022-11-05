@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Movie In-Depth Details</title>
+</head>
+
+<body>
+    <div class="main">
+        <img id="banner">
+        <div class="inner" id="inner">
+            <img id="poster">
+            <div class="inner-upper">
+                <div class="tittle" id="tittle"></div>
+                <div class="release_date" id="release_date"></div>
+            </div>
+            <div class="inner-lower">
+                <div class="desc" id="desc"></div>
+                <div class="lang" id="lang"></div>
+                <div class="popu" id="popu"></div>
+                <div class="adult" id="adult"></div>
+                <div class="avg" id="avg"></div>
+                <div class="vote" id="vote"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const value_id = localStorage.getItem('value_id')
+        // console.log(value_id)
+        const i = value_id.slice(6)
+        // console.log(i)
+        async function getData() {
+            try {
+                // var rawdata = await fetch(urlM)
+                var rawdata = await fetch("http://api.themoviedb.org/3/trending/all/week?api_key=9fcf7a3dcf6947a420682da4c7f85220&language=en-US")
+                var data = await rawdata.json()
+                // console.log(data.results[0].first_air_date, typeof (data.results))
+                // var postdata = data.resutls;
+                // console.log(postdata)
+
+                var poster = "https://image.tmdb.org/t/p/w500/" + data.results[i].poster_path
+                var banner = "https://image.tmdb.org/t/p/w1280" + data.results[i].backdrop_path
+                console.log(banner)
+                if (data.results[i].name) {
+                    document.getElementById("banner").src = banner
+                    document.getElementById("poster").src = poster
+                    document.getElementById("tittle").innerHTML = data.results[i].name
+                    document.getElementById("release_date").innerHTML = "First Release: " + data.results[i].first_air_date
+                    document.getElementById("desc").innerHTML = data.results[i].overview
+                    document.getElementById("lang").innerHTML = "Orignal Language: "+data.results[i].original_language
+                    document.getElementById("popu").innerHTML = "Popularity: "+data.results[i].popularity
+                    document.getElementById("adult").innerHTML = "Adult Rating: "+data.results[i].adult
+                    document.getElementById("avg").innerHTML = "Vote Average: "+data.results[i].vote_average
+                    document.getElementById("vote").innerHTML = "Vote Count: "+data.results[i].vote_count
+                }
+                else {
+
+                    document.getElementById("banner").src = banner
+                    document.getElementById("poster").src = poster
+                    document.getElementById("tittle").innerHTML = data.results[i].title
+                    document.getElementById("release_date").innerHTML = "First Release: " + data.results[i].release_date
+                    document.getElementById("desc").innerHTML = data.results[i].overview
+                    document.getElementById("lang").innerHTML = "Orignal Language: "+data.results[i].original_language
+                    document.getElementById("popu").innerHTML = "Popularity: "+data.results[i].popularity
+                    document.getElementById("adult").innerHTML = "Adult Rating: "+data.results[i].adult
+                    document.getElementById("avg").innerHTML = "Vote Average: "+data.results[i].vote_average
+                    document.getElementById("vote").innerHTML = "Vote Count: "+data.results[i].vote_count
+                }
+
+            }
+            catch (error) {
+                alert("Something went wrong", error)
+                console.log(error)
+            }
+        }
+        getData();
+    </script>
+</body>
+
+</html>
