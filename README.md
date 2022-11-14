@@ -10,4 +10,4 @@ Personal note app
 
 
 ## GitHub Hosted 
-https://trueamrit.github.io/
+https://trueamrit.github.io/ 
